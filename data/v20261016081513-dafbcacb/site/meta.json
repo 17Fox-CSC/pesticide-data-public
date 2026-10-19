@@ -1,0 +1,20 @@
+{
+  "registrations": {
+    "syncedAt": "2026-10-16T08:14:41.117Z",
+    "total": 57981,
+    "tcTotal": 5637,
+    "officialTotal": 57981,
+    "source": "农业农村部农药检定所（中国农药信息网）",
+    "sourceUrl": "https://www.icama.cn/BasicdataSystem/pesticideRegistration/queryselect.do",
+    "note": "全量同步官方登记公示 57981 条，其中原药级（原药/母药/原粉/母粉/母液）5637 条。查询信息供参考，请以登记证原件信息为准。"
+  },
+  "manufacturers": {
+    "syncedAt": "2026-10-16T08:15:11.667Z",
+    "total": 1934,
+    "companyCount": 1934,
+    "officialTotal": 1934,
+    "source": "农业农村部农药检定所",
+    "sourceUrl": "https://www.icama.cn/DataCenter/manufacturer/query",
+    "note": "全量同步官方公示 1934 条，覆盖 1934 家持证企业。查询信息供参考，请以相关许可证书原件信息为准。"
+  }
+}

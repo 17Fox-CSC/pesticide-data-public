@@ -1,0 +1,16 @@
+{
+  "current": "v20261016081513-dafbcacb",
+  "digest": "dafbcacbf198128d2488a145b4ec0a16a63c09b05ad73653c2372edd5b465894",
+  "mirrorDigest": "c16f1ca289fb7b02c8f157fbaafe6b33911ccc964b427d4781f98ee597579071",
+  "counts": {
+    "registrations": 57981,
+    "manufacturers": 1934,
+    "priceListItems": 388,
+    "priceSeries": 137,
+    "priceArticles": 388,
+    "priceQuotes": 112
+  },
+  "basePath": "./v20261016081513-dafbcacb/site",
+  "sitePrefix": "site/",
+  "updatedAt": "2026-10-16T08:15:14.301Z"
+}

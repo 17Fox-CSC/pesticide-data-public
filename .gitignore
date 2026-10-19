@@ -1,0 +1,30 @@
+# Secrets and local config
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Never-publish private / curated datasets
+chain.json
+chain.csv
+nodes.json
+supply-inbox.json
+supply-targets.json
+ingredients_all.json
+capi.json
+sources.json
+details.ndjson
+
+# Never-publish raw caches
+price-raw/
+reg-raw/
+maker-raw/
+
+# Local temporary files
+.sync-work/
+.remote/
+.remote.tmp/
+tmp/
+.DS_Store

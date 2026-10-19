@@ -1,0 +1,54 @@
+name: Public data mirror (manual)
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: public-data-mirror
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout public mirror
+        uses: actions/checkout@v4
+
+      - name: Checkout private source
+        uses: actions/checkout@v4
+        with:
+          repository: 17Fox-CSC/pesticide-data-sync
+          ref: main
+          token: ${{ secrets.PRIVATE_SOURCE_PAT }}
+          path: _source
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Build public mirror
+        run: node scripts/mirror-public.mjs _source .
+
+      - name: Remove private source
+        if: always()
+        run: rm -rf _source
+
+      - name: Commit mirror if changed
+        run: |
+          git config user.name "public-mirror-bot"
+          git config user.email "public-mirror-bot@users.noreply.github.com"
+          git add -A data
+          if git diff --cached --quiet; then
+            echo "No mirror changes."
+            exit 0
+          fi
+          VERSION=$(node -e "console.log(JSON.parse(require('fs').readFileSync('data/index.json','utf8')).current)")
+          git commit -m "data: mirror ${VERSION}"
+          git push

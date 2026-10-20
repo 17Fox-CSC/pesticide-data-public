@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import zlib from 'node:zlib';
 
 const SOURCE = path.resolve(process.argv[2] || '_source');
 const TARGET = path.resolve(process.argv[3] || '.');
@@ -180,9 +181,23 @@ for (let i = 0; i < selected.length; i++) {
       buf
     );
 
+    /*
+     * gzip companion：只作为传输层加速，不改变原文件。
+     * manifest 仍以原文件 sha256 为最终内容判据；loader 会先校验 gzSha256，
+     * 解压后再校验原 sha256，任何一步失败都可回退普通文件。
+     */
+    const gz = zlib.gzipSync(buf, { level: 9 });
+
+    atomicWrite(
+      path.join(siteDir, `${file}.gz`),
+      gz
+    );
+
     site[file] = {
       sha256: sha256(buf),
       bytes: buf.length,
+      gzSha256: sha256(gz),
+      gzSize: gz.length,
     };
   }
 

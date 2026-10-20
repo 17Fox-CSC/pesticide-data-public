@@ -7,6 +7,11 @@ on:
   schedule:
     - cron: '10 3 * * *'
   workflow_dispatch:
+  # 工作流/镜像脚本自身发生改动时自动做一次无害自检；数据已是最新则 gate 直接退出。
+  push:
+    paths:
+      - '.github/workflows/mirror.yml'
+      - 'scripts/mirror-public.mjs'
 
 concurrency:
   group: public-data-mirror

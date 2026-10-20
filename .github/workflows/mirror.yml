@@ -1,6 +1,11 @@
-name: Public data mirror (manual)
+name: Public data mirror
 
 on:
+  # 每天 03:10 UTC（北京时间 11:10）检查一次。
+  # 私有正式同步计划在周一 01:20 UTC，留出充足缓冲；若私有同步延迟或之后手动补跑，
+  # 最迟下一次日检会自动补镜像。
+  schedule:
+    - cron: '10 3 * * *'
   workflow_dispatch:
 
 concurrency:
@@ -33,7 +38,23 @@ jobs:
         with:
           node-version: "22"
 
+      - id: gate
+        name: Check whether mirror is already current
+        run: |
+          SRC=$(node -e "try{console.log(JSON.parse(require('fs').readFileSync('_source/data/index.json','utf8')).current || '')}catch(e){console.log('')}")
+          PUB=$(node -e "try{console.log(JSON.parse(require('fs').readFileSync('data/index.json','utf8')).current || '')}catch(e){console.log('')}")
+          echo "source_version=$SRC" >> "$GITHUB_OUTPUT"
+          echo "public_version=$PUB" >> "$GITHUB_OUTPUT"
+          if [ -n "$SRC" ] && [ "$SRC" = "$PUB" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Public mirror already current: $SRC"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Mirror update required: public=$PUB source=$SRC"
+          fi
+
       - name: Build public mirror
+        if: ${{ steps.gate.outputs.changed == 'true' }}
         run: node scripts/mirror-public.mjs _source .
 
       - name: Remove private source
@@ -41,6 +62,7 @@ jobs:
         run: rm -rf _source
 
       - name: Commit mirror if changed
+        if: ${{ success() && steps.gate.outputs.changed == 'true' }}
         run: |
           git config user.name "public-mirror-bot"
           git config user.email "public-mirror-bot@users.noreply.github.com"
@@ -50,5 +72,5 @@ jobs:
             exit 0
           fi
           VERSION=$(node -e "console.log(JSON.parse(require('fs').readFileSync('data/index.json','utf8')).current)")
-          git commit -m "data: mirror ${VERSION}"
+          git commit -m "data: mirror $VERSION"
           git push

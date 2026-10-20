@@ -49,31 +49,45 @@
       "site": {
         "registrations.ndjson": {
           "sha256": "4a65de9a41989ce19f584027fdbb976c8f498226a4cc87ee875eb1826bcdf74b",
-          "bytes": 13046869
+          "bytes": 13046869,
+          "gzSha256": "449cc89d264e34b9d83157cf0a7e61812f9d4da5caffda56a35f5581e825311e",
+          "gzSize": 2327916
         },
         "manufacturers.ndjson": {
           "sha256": "571f398610cef37dff23b4cef8f217c42a8661cc13a27b510a5dd9084750e83d",
-          "bytes": 649525
+          "bytes": 649525,
+          "gzSha256": "b2cf36d35a151b6dfd05804cf7a4575dc622afa7876d244a32792a4186f1a40e",
+          "gzSize": 109223
         },
         "price-list.json": {
           "sha256": "fa92fc6fb5582d23548051271b1ffda41d2b8827644f5ca233ad59a8d494f456",
-          "bytes": 46377
+          "bytes": 46377,
+          "gzSha256": "7ac9683d5135cf16b687cacb76e1c7b72fa3af2cf3d65509c8bdf2eb008fa493",
+          "gzSize": 7937
         },
         "price-history.json": {
           "sha256": "f19d1e6e81bda5ccf2cd34b8ab0f5ecc6fef7ded20bbcbc79ad4bc389788a68b",
-          "bytes": 2622310
+          "bytes": 2622310,
+          "gzSha256": "d4ffd2f5b707f9495f896e7af944c4d57afcd597295500670e3b43a0be001c6c",
+          "gzSize": 188195
         },
         "price-lite.json": {
           "sha256": "d155ba329e3ba92e8671b7e16a5025b975edcf2dc4e3a297eff7f94833924057",
-          "bytes": 881608
+          "bytes": 881608,
+          "gzSha256": "50f2003ef6351fdcb3b0d2b1398ed481dd21312679e31617264e535849eb3030",
+          "gzSize": 108779
         },
         "price-latest.json": {
           "sha256": "7c3f8f15af24e657afee612d56297f4787c02c4a7607ecd3b4fc1b19d4c553e9",
-          "bytes": 11336
+          "bytes": 11336,
+          "gzSha256": "936f8205fb917366da54330c0a5e5046d6fcf0ffebd77486d474b122d76225e5",
+          "gzSize": 1972
         },
         "meta.json": {
           "sha256": "80886a6b4f0f524c4d086bf8c1fa1063ce39901cb7d06686f698c87cf6e56914",
-          "bytes": 905
+          "bytes": 905,
+          "gzSha256": "08fdbb45903a2ca4feaba428b56a6225e8d6d942c32dc1c48434b8a8923c9e4b",
+          "gzSize": 520
         }
       },
       "cache": {},
@@ -97,31 +111,45 @@
       "site": {
         "registrations.ndjson": {
           "sha256": "34d10649a00b0456be16d1636c604f8d38677c6c8d215e4ca725b70cf53a2374",
-          "bytes": 13046869
+          "bytes": 13046869,
+          "gzSha256": "6ccdd481107c736524437f311e1bf4b4d3d4b92d1a4ef8a659059934882c1850",
+          "gzSize": 2327918
         },
         "manufacturers.ndjson": {
           "sha256": "499afab7975a67e29f9b3e9f1b069020d3e8916875ed884e71cc3a734420501f",
-          "bytes": 650367
+          "bytes": 650367,
+          "gzSha256": "6ab30779afcf7dba7c25daa7112cc2321912d4181b6de10d95a6103b09a44b07",
+          "gzSize": 109370
         },
         "price-list.json": {
           "sha256": "ae641f80894e37e9dfaf3596d996b6f2665d3bc59a1a75da87dd05f5fd706b31",
-          "bytes": 46377
+          "bytes": 46377,
+          "gzSha256": "a5201d42060729f195a7971c4902016ea8ed3e5484a5dced1024027df9d47815",
+          "gzSize": 7936
         },
         "price-history.json": {
           "sha256": "c03ef3e0f3a4486efdfdab5dd7c35617f26fc507a54c6053282cd9ec3c508af1",
-          "bytes": 2622310
+          "bytes": 2622310,
+          "gzSha256": "42d9e0ded6fe6f1d7ed4098b7b19ccdbd1463753953f3a756a7c500186f845d5",
+          "gzSize": 188195
         },
         "price-lite.json": {
           "sha256": "4167584d5cb4f6d08251068ad1ef97ab1174e5ea0e3dd2dd5b5a9220c628c044",
-          "bytes": 881608
+          "bytes": 881608,
+          "gzSha256": "22ba295f6904e342f046649cab94da627c98de755b9c88a46aacf2407b2c40e1",
+          "gzSize": 108778
         },
         "price-latest.json": {
           "sha256": "7c3f8f15af24e657afee612d56297f4787c02c4a7607ecd3b4fc1b19d4c553e9",
-          "bytes": 11336
+          "bytes": 11336,
+          "gzSha256": "936f8205fb917366da54330c0a5e5046d6fcf0ffebd77486d474b122d76225e5",
+          "gzSize": 1972
         },
         "meta.json": {
           "sha256": "2dc90d90cb5f72198314ee9822f7fe3c4b0eae83f8be9b1610b686c7d9097409",
-          "bytes": 905
+          "bytes": 905,
+          "gzSha256": "be681842c907c1f6121d3330817652dee7b8932d9b810d46f75ace83a52fc207",
+          "gzSize": 514
         }
       },
       "cache": {},

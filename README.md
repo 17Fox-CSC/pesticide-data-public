@@ -17,7 +17,19 @@ Only approved public-data outputs may be published here:
 - `price-latest.json` (**sanitized public version only**)
 - `meta.json`
 
-Version delivery will use:
+Each approved file may also have a same-directory `.gz` companion for transport only, for example:
+
+- `registrations.ndjson.gz`
+- `price-history.json.gz`
+
+The manifest keeps the original file `sha256` as the final content check and may additionally expose:
+
+- `gzSha256`
+- `gzSize`
+
+Consumers should verify the gzip SHA-256 first, decompress it, and then verify the decompressed bytes against the original `sha256`. If gzip is unavailable or invalid, consumers may fall back to the original file.
+
+Version delivery uses:
 
 - `data/index.json`
 - `data/manifest.json`
@@ -46,6 +58,7 @@ The following data is intentionally excluded from this public mirror:
 For `price-latest.json`, the public mirror must remove at least:
 
 - top-level `supplyNote`
+- top-level `breadth`
 - `quotes[].note`
 
 No production schedule is enabled in this repository yet.

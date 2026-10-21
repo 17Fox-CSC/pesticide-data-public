@@ -44,18 +44,24 @@ jobs:
           node-version: "22"
 
       - id: gate
-        name: Check whether mirror is already current
+        name: Check whether mirror rebuild is required
+        env:
+          EVENT_NAME: ${{ github.event_name }}
         run: |
           SRC=$(node -e "try{console.log(JSON.parse(require('fs').readFileSync('_source/data/index.json','utf8')).current || '')}catch(e){console.log('')}")
           PUB=$(node -e "try{console.log(JSON.parse(require('fs').readFileSync('data/index.json','utf8')).current || '')}catch(e){console.log('')}")
           echo "source_version=$SRC" >> "$GITHUB_OUTPUT"
           echo "public_version=$PUB" >> "$GITHUB_OUTPUT"
-          if [ -n "$SRC" ] && [ "$SRC" = "$PUB" ]; then
+
+          # schedule 只在私有版本变化时重建，避免每天重复 gzip。
+          # push / workflow_dispatch 属于代码变更或人工核验，必须强制真正执行 builder，
+          # 否则“自检”会因为版本相同而跳过，无法验证镜像脚本本身。
+          if [ "$EVENT_NAME" = "schedule" ] && [ -n "$SRC" ] && [ "$SRC" = "$PUB" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "Public mirror already current: $SRC"
+            echo "Scheduled check: public mirror already current: $SRC"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
-            echo "Mirror update required: public=$PUB source=$SRC"
+            echo "Mirror rebuild required: event=$EVENT_NAME public=$PUB source=$SRC"
           fi
 
       - name: Build public mirror

@@ -1,16 +1,16 @@
 {
-  "current": "v20261026062633-e501c6dc",
-  "digest": "e501c6dc97436e699c6a8df007443c6a69161c9eae2b38bcd7b7e7cf977d7043",
-  "mirrorDigest": "b3fc6d2f1c20f9acd9f8eedca6b0a639866139308351711efc2c7c61a3584b0f",
+  "current": "v20261027020308-b7c97104",
+  "digest": "b7c9710413247f88a356a8ac8f62768dc0a5a3ce9447738d7bd969feb7abb303",
+  "mirrorDigest": "32a5beab489d89fd3841dabd5961bd499e492444cb8fec58f0da8a1f2b257e03",
   "counts": {
-    "registrations": 57973,
+    "registrations": 57974,
     "manufacturers": 1936,
     "priceListItems": 388,
     "priceSeries": 137,
     "priceArticles": 388,
     "priceQuotes": 112
   },
-  "basePath": "./v20261026062633-e501c6dc/site",
+  "basePath": "./v20261027020308-b7c97104/site",
   "sitePrefix": "site/",
-  "updatedAt": "2026-10-26T06:26:34.076Z"
+  "updatedAt": "2026-10-27T02:03:08.684Z"
 }

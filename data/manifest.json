@@ -1,20 +1,6 @@
 {
-  "current": "v20261026062633-e501c6dc",
+  "current": "v20261027020308-b7c97104",
   "history": [
-    {
-      "version": "v20261016081513-dafbcacb",
-      "digest": "dafbcacbf198128d2488a145b4ec0a16a63c09b05ad73653c2372edd5b465894",
-      "mirrorDigest": "c16f1ca289fb7b02c8f157fbaafe6b33911ccc964b427d4781f98ee597579071",
-      "counts": {
-        "registrations": 57981,
-        "manufacturers": 1934,
-        "priceListItems": 388,
-        "priceSeries": 137,
-        "priceArticles": 388,
-        "priceQuotes": 112
-      },
-      "at": "2026-10-16T08:15:14.301Z"
-    },
     {
       "version": "v20261026062633-e501c6dc",
       "digest": "e501c6dc97436e699c6a8df007443c6a69161c9eae2b38bcd7b7e7cf977d7043",
@@ -28,71 +14,23 @@
         "priceQuotes": 112
       },
       "at": "2026-10-26T06:26:34.075Z"
-    }
-  ],
-  "versions": {
-    "v20261016081513-dafbcacb": {
-      "version": "v20261016081513-dafbcacb",
-      "createdAt": "2026-10-16T08:15:14.301Z",
-      "digest": "dafbcacbf198128d2488a145b4ec0a16a63c09b05ad73653c2372edd5b465894",
-      "mirrorDigest": "c16f1ca289fb7b02c8f157fbaafe6b33911ccc964b427d4781f98ee597579071",
+    },
+    {
+      "version": "v20261027020308-b7c97104",
+      "digest": "b7c9710413247f88a356a8ac8f62768dc0a5a3ce9447738d7bd969feb7abb303",
+      "mirrorDigest": "32a5beab489d89fd3841dabd5961bd499e492444cb8fec58f0da8a1f2b257e03",
       "counts": {
-        "registrations": 57981,
-        "manufacturers": 1934,
+        "registrations": 57974,
+        "manufacturers": 1936,
         "priceListItems": 388,
         "priceSeries": 137,
         "priceArticles": 388,
         "priceQuotes": 112
       },
-      "siteCount": 7,
-      "cacheCount": 0,
-      "site": {
-        "registrations.ndjson": {
-          "sha256": "34d10649a00b0456be16d1636c604f8d38677c6c8d215e4ca725b70cf53a2374",
-          "bytes": 13046869,
-          "gzSha256": "6ccdd481107c736524437f311e1bf4b4d3d4b92d1a4ef8a659059934882c1850",
-          "gzSize": 2327918
-        },
-        "manufacturers.ndjson": {
-          "sha256": "499afab7975a67e29f9b3e9f1b069020d3e8916875ed884e71cc3a734420501f",
-          "bytes": 650367,
-          "gzSha256": "6ab30779afcf7dba7c25daa7112cc2321912d4181b6de10d95a6103b09a44b07",
-          "gzSize": 109370
-        },
-        "price-list.json": {
-          "sha256": "ae641f80894e37e9dfaf3596d996b6f2665d3bc59a1a75da87dd05f5fd706b31",
-          "bytes": 46377,
-          "gzSha256": "a5201d42060729f195a7971c4902016ea8ed3e5484a5dced1024027df9d47815",
-          "gzSize": 7936
-        },
-        "price-history.json": {
-          "sha256": "c03ef3e0f3a4486efdfdab5dd7c35617f26fc507a54c6053282cd9ec3c508af1",
-          "bytes": 2622310,
-          "gzSha256": "42d9e0ded6fe6f1d7ed4098b7b19ccdbd1463753953f3a756a7c500186f845d5",
-          "gzSize": 188195
-        },
-        "price-lite.json": {
-          "sha256": "4167584d5cb4f6d08251068ad1ef97ab1174e5ea0e3dd2dd5b5a9220c628c044",
-          "bytes": 881608,
-          "gzSha256": "22ba295f6904e342f046649cab94da627c98de755b9c88a46aacf2407b2c40e1",
-          "gzSize": 108778
-        },
-        "price-latest.json": {
-          "sha256": "7c3f8f15af24e657afee612d56297f4787c02c4a7607ecd3b4fc1b19d4c553e9",
-          "bytes": 11336,
-          "gzSha256": "936f8205fb917366da54330c0a5e5046d6fcf0ffebd77486d474b122d76225e5",
-          "gzSize": 1972
-        },
-        "meta.json": {
-          "sha256": "2dc90d90cb5f72198314ee9822f7fe3c4b0eae83f8be9b1610b686c7d9097409",
-          "bytes": 905,
-          "gzSha256": "be681842c907c1f6121d3330817652dee7b8932d9b810d46f75ace83a52fc207",
-          "gzSize": 514
-        }
-      },
-      "cache": {},
-      "supersedes": null
-    },
+      "at": "2026-10-27T02:03:08.683Z"
+    }
+  ],
+  "versions": {
     "v20261026062633-e501c6dc": {
       "version": "v20261026062633-e501c6dc",
       "createdAt": "2026-10-26T06:26:34.075Z",
@@ -153,7 +91,69 @@
         }
       },
       "cache": {},
-      "supersedes": "v20261016081513-dafbcacb"
+      "supersedes": null
+    },
+    "v20261027020308-b7c97104": {
+      "version": "v20261027020308-b7c97104",
+      "createdAt": "2026-10-27T02:03:08.683Z",
+      "digest": "b7c9710413247f88a356a8ac8f62768dc0a5a3ce9447738d7bd969feb7abb303",
+      "mirrorDigest": "32a5beab489d89fd3841dabd5961bd499e492444cb8fec58f0da8a1f2b257e03",
+      "counts": {
+        "registrations": 57974,
+        "manufacturers": 1936,
+        "priceListItems": 388,
+        "priceSeries": 137,
+        "priceArticles": 388,
+        "priceQuotes": 112
+      },
+      "siteCount": 7,
+      "cacheCount": 0,
+      "site": {
+        "registrations.ndjson": {
+          "sha256": "7c2736189290e4295d0efa7e6c5223d21c7277f8a9884d17d649261f37e35692",
+          "bytes": 13045348,
+          "gzSha256": "2c0477b65e3a3eb79181b945f1fd0f25b0a7c806fd0a586a8cbb7e7229b8a1e1",
+          "gzSize": 2327809
+        },
+        "manufacturers.ndjson": {
+          "sha256": "2e619887bb864202ee4114fba922305331cce71110dd3c52241a841a49dae4c7",
+          "bytes": 651050,
+          "gzSha256": "f1f07ed2dd2528f16afa4471c7512b24e344f4ac865b61819677638cb66688d2",
+          "gzSize": 109481
+        },
+        "price-list.json": {
+          "sha256": "43510c297d06b8636b391f58708197257f0c6fa57827c5ac310cee896d890fe9",
+          "bytes": 46377,
+          "gzSha256": "41c171dd8065f2d3889ad88320a2ecef58d5fee7365f6fc15245bb851903abd8",
+          "gzSize": 7937
+        },
+        "price-history.json": {
+          "sha256": "605c1a8816cffd6181515ed5f3a7369a4203b3ff8feb635e560ded8304886a61",
+          "bytes": 2622310,
+          "gzSha256": "397a011dc53418673879721785e58d9c3d1d7bea0305a105d0a64bbce88f299d",
+          "gzSize": 188196
+        },
+        "price-lite.json": {
+          "sha256": "5b2ce6f7cf0f1fcc053672b68f5b32d7c669fafa3a3804b8166abdebcef61bf6",
+          "bytes": 881608,
+          "gzSha256": "67960510258d3b97ce6999477ee66e94fa72124e0f281190d533b181fba2d44b",
+          "gzSize": 108777
+        },
+        "price-latest.json": {
+          "sha256": "7c3f8f15af24e657afee612d56297f4787c02c4a7607ecd3b4fc1b19d4c553e9",
+          "bytes": 11336,
+          "gzSha256": "936f8205fb917366da54330c0a5e5046d6fcf0ffebd77486d474b122d76225e5",
+          "gzSize": 1972
+        },
+        "meta.json": {
+          "sha256": "5073c943d370eac028ce7ac9c1bc86256f62ca4f4ca78a27d6f2f5a7db998bc6",
+          "bytes": 905,
+          "gzSha256": "b8586718cddaa8223d1dad166c6e98b148e1fc5eec61138c2240aff2c2a5af6a",
+          "gzSize": 514
+        }
+      },
+      "cache": {},
+      "supersedes": "v20261026062633-e501c6dc"
     }
   }
 }

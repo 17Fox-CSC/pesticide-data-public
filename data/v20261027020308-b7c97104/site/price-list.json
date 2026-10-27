@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-10-16T08:15:12.701Z",
+ "fetchedAt": "2026-10-27T02:03:06.823Z",
  "source": "https://www.sino-agri-sal.com/（2026-10 官网改版后；2017–2026.08 为旧版 newslist.php?cid=29 时期）",
  "note": "id 是抓取时该站的正文 id。2026-10 改版前后 id 体系不同，所以去重按 date 不按 id。",
  "items": [

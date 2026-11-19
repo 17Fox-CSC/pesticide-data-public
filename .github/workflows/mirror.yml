@@ -1,87 +1,42 @@
-name: Public data mirror
+name: Public mirror safety
 
 on:
-  # 每天 03:10 UTC（北京时间 11:10）检查一次。
-  # 私有正式同步计划在周一 01:20 UTC，留出充足缓冲；若私有同步延迟或之后手动补跑，
-  # 最迟下一次日检会自动补镜像。
   schedule:
     - cron: '10 3 * * *'
   workflow_dispatch:
-  # 工作流/镜像脚本自身发生改动时自动做一次无害自检；数据已是最新则 gate 直接退出。
-  push:
-    paths:
-      - '.github/workflows/mirror.yml'
-      - 'scripts/mirror-public.mjs'
-
-concurrency:
-  group: public-data-mirror
-  cancel-in-progress: false
+  pull_request:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  mirror:
+  verify-mirror-release:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-
+    timeout-minutes: 10
     steps:
-      - name: Checkout public mirror
-        uses: actions/checkout@v4
-
-      - name: Checkout private source
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          repository: 17Fox-CSC/pesticide-data-sync
-          ref: main
-          token: ${{ secrets.PRIVATE_SOURCE_PAT }}
-          path: _source
           persist-credentials: false
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "22"
+          node-version: '22'
+      - run: node --test scripts/*.test.mjs
 
-      - id: gate
-        name: Check whether mirror rebuild is required
-        env:
-          EVENT_NAME: ${{ github.event_name }}
+  observe:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Record the checked-out public pointer
         run: |
-          SRC=$(node -e "try{console.log(JSON.parse(require('fs').readFileSync('_source/data/index.json','utf8')).current || '')}catch(e){console.log('')}")
-          PUB=$(node -e "try{console.log(JSON.parse(require('fs').readFileSync('data/index.json','utf8')).current || '')}catch(e){console.log('')}")
-          echo "source_version=$SRC" >> "$GITHUB_OUTPUT"
-          echo "public_version=$PUB" >> "$GITHUB_OUTPUT"
-
-          # schedule 只在私有版本变化时重建，避免每天重复 gzip。
-          # push / workflow_dispatch 属于代码变更或人工核验，必须强制真正执行 builder，
-          # 否则“自检”会因为版本相同而跳过，无法验证镜像脚本本身。
-          if [ "$EVENT_NAME" = "schedule" ] && [ -n "$SRC" ] && [ "$SRC" = "$PUB" ]; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "Scheduled check: public mirror already current: $SRC"
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-            echo "Mirror rebuild required: event=$EVENT_NAME public=$PUB source=$SRC"
-          fi
-
-      - name: Build public mirror
-        if: ${{ steps.gate.outputs.changed == 'true' }}
-        run: node scripts/mirror-public.mjs _source .
-
-      - name: Remove private source
-        if: always()
-        run: rm -rf _source
-
-      - name: Commit mirror if changed
-        if: ${{ success() && steps.gate.outputs.changed == 'true' }}
-        run: |
-          git config user.name "public-mirror-bot"
-          git config user.email "public-mirror-bot@users.noreply.github.com"
-          git add -A data
-          if git diff --cached --quiet; then
-            echo "No mirror changes."
-            exit 0
-          fi
-          VERSION=$(node -e "console.log(JSON.parse(require('fs').readFileSync('data/index.json','utf8')).current)")
-          git commit -m "data: mirror $VERSION"
-          git push
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          import { readFileSync } from 'node:fs';
+          const index = JSON.parse(readFileSync('data/index.json'));
+          assert.match(index.current, /^v\d{14}-[0-9a-f]{8}$/);
+          console.log(JSON.stringify({ commit: process.env.GITHUB_SHA, current: index.current, mode: 'read-only' }));
+          JS

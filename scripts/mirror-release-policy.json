@@ -1,0 +1,11 @@
+{
+  "helperCommit": "fb2cbb49a17f8acd0e8db511265e7313e8b905d5",
+  "firstMarketDate": "2026-11-01",
+  "firstPublicationDate": "2026-11-01",
+  "protectedFiles": {
+    "registrations.ndjson": "4a65de9a41989ce19f584027fdbb976c8f498226a4cc87ee875eb1826bcdf74b",
+    "manufacturers.ndjson": "571f398610cef37dff23b4cef8f217c42a8661cc13a27b510a5dd9084750e83d",
+    "meta.json": "80886a6b4f0f524c4d086bf8c1fa1063ce39901cb7d06686f698c87cf6e56914"
+  },
+  "reviewedApprovals": []
+}

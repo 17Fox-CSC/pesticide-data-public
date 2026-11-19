@@ -18,9 +18,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Reject changes to public data
+        run: node scripts/verify-pr-data-diff.mjs
       - run: node --test scripts/*.test.mjs
 
   observe:
